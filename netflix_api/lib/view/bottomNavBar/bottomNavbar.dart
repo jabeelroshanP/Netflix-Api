@@ -1,52 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_api/controller/bottom_nav_provider.dart';
+import 'package:netflix_api/view/saved/saved.dart';
+import 'package:provider/provider.dart';
 import 'package:netflix_api/utils/colors.dart';
-import 'package:netflix_api/view/download%20page/downloads.dart';
+import 'package:netflix_api/view/Profile%20Page/ProfilePage.dart';
 import 'package:netflix_api/view/Home%20page/home.dart';
 import 'package:netflix_api/view/search%20page/search.dart';
 
-class BottomPg extends StatefulWidget {
+class BottomPg extends StatelessWidget {
   const BottomPg({super.key});
 
-  @override
-  State<BottomPg> createState() => _BottomPgState();
-}
+  final List<Widget> pages = const [HomePg(), SearchPg(),Saved(), Profilepage()];
 
-int indexNums=0;
-
-final pages=[
-  HomePg(),
-  SearchPg(),
-  DownloadsPg(),
-
-
-];
-class _BottomPgState extends State<BottomPg> {
   @override
   Widget build(BuildContext context) {
+    final bottomNav = Provider.of<BottomNavProvider>(context);
+
     return Scaffold(
-      body: pages[indexNums],
+      body: pages[bottomNav.currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Utils.blackkk,
         elevation: 0,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey[700],
-        selectedIconTheme: IconThemeData(color: Colors.white),
+        selectedIconTheme: const IconThemeData(color: Colors.white),
         type: BottomNavigationBarType.fixed,
-        currentIndex: indexNums,
+        currentIndex: bottomNav.currentIndex,
         enableFeedback: false,
-        
         onTap: (int value) {
-          return setState(() {
-            indexNums=value;
-          });
+          bottomNav.changeIndex(value);
         },
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.search),label: "Search"),
-          BottomNavigationBarItem(icon: Icon(Icons.download_for_offline_outlined),label: "Downloads"),
-
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+          BottomNavigationBarItem(icon: Icon(Icons.save), label: "Saved"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
         ],
-       ),
+      ),
     );
   }
 }

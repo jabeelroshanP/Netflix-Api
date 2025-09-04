@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:netflix_api/controller/netflix_provider.dart';
 import 'package:netflix_api/utils/colors.dart';
-import 'package:netflix_api/view/bottomNavBar/bottomNavbar.dart';
-import 'package:netflix_api/view/view_page/view_page.dart';
 import 'package:provider/provider.dart';
 
 class SearchPg extends StatefulWidget {

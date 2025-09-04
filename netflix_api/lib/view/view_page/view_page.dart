@@ -69,7 +69,6 @@ class ViewPg extends StatelessWidget {
           children: [
             Stack(
               children: [
-                
                 SizedBox(
                   child: Image.network(
                     image,
@@ -80,9 +79,15 @@ class ViewPg extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 160.0, top: 150),
-                  child: CircleAvatar(radius: 35,backgroundColor: Colors.black54,
-                  child: Icon(Icons.play_arrow,size: 45,color: const Color.fromARGB(255, 255, 255, 255),),),
-                  
+                  child: CircleAvatar(
+                    radius: 35,
+                    backgroundColor: Colors.black54,
+                    child: Icon(
+                      Icons.play_arrow,
+                      size: 45,
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -153,7 +158,6 @@ class ViewPg extends StatelessWidget {
                               Icon(Icons.download, color: Colors.white),
                               SizedBox(width: 10),
                               Text("Downloading Started"),
-                              
                             ],
                           ),
                           duration: Duration(seconds: 2),
@@ -195,7 +199,7 @@ class ViewPg extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 5),
-                  Text(  
+                  Text(
                     about,
                     style: const TextStyle(color: Colors.white, fontSize: 18),
                   ),
@@ -234,17 +238,26 @@ class ViewPg extends StatelessWidget {
                   ),
                   Consumer<NetFlixProviderrr>(
                     builder: (context, value, child) {
-                      
-                   return Column(
-                     children: [
-                      listContainer(listCategories: value.toprated,direction: Axis.horizontal),Gap(10),
-                       listContainer(listCategories:value.listOfDataOfNetFlix ,direction: Axis.horizontal),Gap(10),
-                       listContainer(listCategories:value.upcomingMovies ,direction: Axis.horizontal),
-                     ],
-                   );
-                   
-                   }
-                   )
+                      return Column(
+                        children: [
+                          listContainer(
+                            listCategories: value.toprated,
+                            direction: Axis.horizontal,
+                          ),
+                          Gap(10),
+                          listContainer(
+                            listCategories: value.listOfDataOfNetFlix,
+                            direction: Axis.horizontal,
+                          ),
+                          Gap(10),
+                          listContainer(
+                            listCategories: value.upcomingMovies,
+                            direction: Axis.horizontal,
+                          ),
+                        ],
+                      );
+                    },
+                  ),
                 ],
               ),
             ),

@@ -54,42 +54,7 @@ class _HomeState extends State<HomePg> {
                           fit: BoxFit.fill,
                         ),
                       ),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Image.asset('assets/n.png', height: 120, width: 50),
-                              const Gap(25),
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => TvshowsPg()));
-                                },
-                                child: titleTextsss("TV Shows"),
-                              ),
-                              const Gap(25),
-                              titleTextsss("Movies"),
-                              const Gap(25),
-                              titleTextsss("My List"),
-                            ],
-                          ),
-                          const Gap(340),
-                          const Text(
-                            "TV Show • Supernatural • Thriller • US",
-                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: Colors.white),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              const SizedBox(width: 7),
-                              infoButtonnn(iconnn: Icons.add, label: 'My List'),
-                              playButtonContainerrr(),
-                              infoButtonnn(iconnn: Icons.info_outline, label: "Info"),
-                              const SizedBox(width: 7),
-                            ],
-                          ),
-                          
-                        ],
-                      ),
+                      
                     ),Gap(15),
                Padding(
                  padding: const EdgeInsets.all(8.0),
